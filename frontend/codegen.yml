@@ -1,0 +1,9 @@
+overwrite: true
+schema: https://gql.beta.curio.io
+documents: gql/**/*.gql
+generates:
+  gql/api.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
