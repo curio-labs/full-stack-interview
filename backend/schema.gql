@@ -1,0 +1,41 @@
+# This is a GraphQL schema for a pizza and pasta restaurants app.
+# The code is messy and needs to be refactored, how would you improve it?
+
+type Query {
+    pizzaRestaurants: [PizzaRestaurant]
+    pastaRestaurants: [PastaRestaurant]
+    pizzaRestaurant: PizzaRestaurant
+    pastaRestaurant: PastaRestaurant
+}
+
+type PizzaRestaurant {
+    id: String!
+    name: String!
+    dishes: [Dish]
+    numberOfPizzaOvens: Int!
+}
+
+type PastaRestaurant {
+    id: String!
+    name: String!
+    dishes: [Dish]
+    pastaMakers: Int!
+}
+
+type Dish {
+    isPizza: Boolean!
+    isPasta: Boolean!
+    pepperoni: Int
+    tomatoes: Int!
+    mozzarella: Boolean!
+    isVegan: Boolean!
+    isFarfalle: Boolean!
+    isTagliatelle: Boolean!
+    isFettuccini: Boolean!
+    isSpaghetti: Boolean!
+}
+
+
+type Mutation {
+    # Define a mutation to order from a restaurant
+}
