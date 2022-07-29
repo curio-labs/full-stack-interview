@@ -2,7 +2,42 @@
 
 This interview has 2 options. If you have used GraphQL please go for option A, otherwise go for option B.
 
-## A: building a search page for stories using a GraphQL query
+## A: retrieve a list of publication logos from a REST API
+
+In this second part we would like to render a list of publication logos in the path /publications. Here is a sketch of the page:
+
+<img src="https://github.com/curio-labs/frontend-interview/blob/main/docs/publications.png" width="250"/>
+
+In order to retrieve the publications, we need to call a REST API endpoint. If possible, please avoid using any libraries to fetch and cache content.
+
+https://api.curio.io/api/providers?type=publication
+
+Type of the response:
+
+```
+export type Response = {
+    data?: Publication[];
+} | {
+    error?: string
+}
+
+export interface Publication {
+    id:                 string;
+    name:               string;
+    slug:               string;
+    description:        string;
+    imageUrl:           string;
+    wordImageUrl:       string;
+    hidden:             boolean;
+    storyAddendum:      null;
+    websiteUrl:         null;
+    creatorTitle?:       null;
+    creatorDescription?: null;
+    creatorImageUrl?:    null;
+}
+```
+
+## B: building a search page for stories using a GraphQL query
 
 We would like to build a small React app where users can search for stories.
 
@@ -51,40 +86,5 @@ query Search(
       }
     }
   }
-}
-```
-
-## B: retrieve a list of publication logos from a REST API
-
-In this second part we would like to render a list of publication logos in the path /publications. Here is a sketch of the page:
-
-<img src="https://github.com/curio-labs/frontend-interview/blob/main/docs/publications.png" width="250"/>
-
-In order to retrieve the publications, we need to call a REST API endpoint. If possible, please avoid using any libraries to fetch and cache content.
-
-https://api.curio.io/api/providers?type=publication
-
-Type of the response:
-
-```
-export type Response = {
-    data?: Publication[];
-} | {
-    error?: string
-}
-
-export interface Publication {
-    id:                 string;
-    name:               string;
-    slug:               string;
-    description:        string;
-    imageUrl:           string;
-    wordImageUrl:       string;
-    hidden:             boolean;
-    storyAddendum:      null;
-    websiteUrl:         null;
-    creatorTitle?:       null;
-    creatorDescription?: null;
-    creatorImageUrl?:    null;
 }
 ```
